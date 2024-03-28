@@ -7,4 +7,4 @@ WORKDIR /achat
 COPY ./target/achat-1.0.jar achat.jar
 
 # Specify the command to run your Spring Boot application
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "achat.jar"]
