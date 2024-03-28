@@ -1,6 +1,5 @@
 FROM openjdk:11
-# Install MySQL client
-RUN apt-get update && apt-get install -y mysql-client
+
 # Set the working directory in the container
 WORKDIR /achat
 
