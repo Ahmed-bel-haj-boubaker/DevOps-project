@@ -25,7 +25,7 @@ services:
        spring.datasource.username=ahmed,
        spring.datasource.password=1234,
        spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect,
-       spring.jpa.hibernate.ddl-auto=update
+      
       }'
     stdin_open: true
     tty: true
