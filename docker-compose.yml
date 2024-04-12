@@ -15,7 +15,10 @@ services:
   achat_backend:
     depends_on:
       - mysqldb
-    image: ahmedbelhaj2/achat:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ahmedbelhaj2/achat_backend:1.0.0
     restart: on-failure
     ports:
       - 8089:8089
