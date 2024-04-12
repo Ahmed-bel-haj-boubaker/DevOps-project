@@ -12,7 +12,7 @@ services:
     volumes:
       - db:/var/lib/mysql
 
-  achat:
+  ahmedbelhaj2/achat_backend:
     depends_on:
       - mysqldb
     image: ahmedbelhaj2/achat_backend:1.0.0
