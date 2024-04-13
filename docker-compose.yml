@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  mysqldb:
+  mysql:
     image: mysql:5.7
     restart: unless-stopped
     ports:
@@ -11,7 +11,7 @@ services:
 
   achat_backend:
     depends_on:
-      - mysqldb
+      - mysql
     build:
       context: .
       dockerfile: Dockerfile
@@ -20,7 +20,7 @@ services:
     ports:
       - '8089:8089'
     environment:
-      SPRING_APPLICATION_JSON: '{"spring.datasource.url":"jdbc:mysql://mysqldb:3306/achatdb","spring.datasource.username":"ahmed","spring.datasource.password":"1234","spring.jpa.properties.hibernate.dialect":"org.hibernate.dialect.MySQL5InnoDBDialect","spring.jpa.hibernate.ddl-auto":"update"}'
+      SPRING_APPLICATION_JSON: '{"spring.datasource.url":"jdbc:mysql://mysql:3306/achatdb","spring.datasource.username":"ahmed","spring.datasource.password":"1234","spring.jpa.properties.hibernate.dialect":"org.hibernate.dialect.MySQL5InnoDBDialect","spring.jpa.hibernate.ddl-auto":"update"}'
     stdin_open: true
     tty: true
 
