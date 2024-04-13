@@ -4,7 +4,7 @@ services:
   mysqldb:
     image: mysql:5.6.20
     restart: unless-stopped
-    container_name: mysql-container-ahmed
+    container_name: mysql-container-ahmed2
     environment:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=achatdb
