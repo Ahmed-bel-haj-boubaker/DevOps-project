@@ -20,7 +20,7 @@ services:
 
   mysql-db:
     image: mysql:5.7
-    container_name: spartacus_foyer_mysql
+    container_name: achat_mysql
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
