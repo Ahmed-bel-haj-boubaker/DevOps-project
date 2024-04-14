@@ -8,7 +8,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: ahmedbelhaj2/achat_backend:1.0.0
-    container_name: achat_back2
+    container_name: achat_back3
     restart: on-failure
     ports:
       - "8089:8089"
