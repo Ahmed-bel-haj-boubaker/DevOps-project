@@ -22,10 +22,11 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class SpringBootappTest {
 
-    @Mock
-    private CategorieProduitServiceImpl categorieProduitService;
 
     @InjectMocks
+    private CategorieProduitServiceImpl categorieProduitService;
+
+    @Mock
     private CategorieProduitRepository categorieProduitRepository;
 
     @Test
