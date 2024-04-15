@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 public class SpringBootappTest {
 
 
-    @InjectMocks
+
     private CategorieProduitServiceImpl categorieProduitService;
 
     @Mock
