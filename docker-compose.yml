@@ -13,7 +13,7 @@ services:
     ports:
       - "8089:8089"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/achatdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3307/achatdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
 
@@ -26,7 +26,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: achatdb
     ports:
-      - "3306:3306"
+      - "3307:3307"
     volumes:
       - db_data:/var/lib/mysql
 
