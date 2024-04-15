@@ -7,6 +7,7 @@ import tn.esprit.rh.achat.entities.CategorieProduit;
 import tn.esprit.rh.achat.services.ICategorieProduitService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @Api(tags = "Gestion des categories Produit")
@@ -26,8 +27,8 @@ public class CategorieProduitController {
 	// http://localhost:8089/SpringMVC/categorieProduit/retrieve-categorieProduit/8
 	@GetMapping("/retrieve-categorieProduit/{categorieProduit-id}")
 	@ResponseBody
-	public CategorieProduit retrieveCategorieProduit(@PathVariable("categorieProduit-id") Long categorieProduitId) {
-		return categorieProduitService.retrieveCategorieProduit(categorieProduitId);
+	public Optional<CategorieProduit> retrieveCategorieProduit(@PathVariable("categorieProduit-id") Long categorieProduitId) {
+		return Optional.ofNullable(categorieProduitService.retrieveCategorieProduit(categorieProduitId).get());
 	}
 
 	// http://localhost:8089/SpringMVC/categorieProduit/add-categorieProduit

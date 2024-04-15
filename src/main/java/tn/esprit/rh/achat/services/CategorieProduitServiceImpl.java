@@ -5,6 +5,7 @@ import tn.esprit.rh.achat.entities.CategorieProduit;
 import tn.esprit.rh.achat.repositories.CategorieProduitRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategorieProduitServiceImpl implements ICategorieProduitService {
@@ -34,8 +35,8 @@ public class CategorieProduitServiceImpl implements ICategorieProduitService {
 	}
 
 	@Override
-	public CategorieProduit retrieveCategorieProduit(Long id) {
-		return categorieProduitRepository.findById(id).orElse(null);
+	public Optional<CategorieProduit> retrieveCategorieProduit(Long id) {
+		return categorieProduitRepository.findById(id);
 	}
 
 }

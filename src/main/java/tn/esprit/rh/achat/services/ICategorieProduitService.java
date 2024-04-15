@@ -3,6 +3,7 @@ package tn.esprit.rh.achat.services;
 import tn.esprit.rh.achat.entities.CategorieProduit;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface ICategorieProduitService {
@@ -15,6 +16,6 @@ public interface ICategorieProduitService {
 
 	CategorieProduit updateCategorieProduit(CategorieProduit cp);
 
-	CategorieProduit retrieveCategorieProduit(Long id);
+	Optional<CategorieProduit> retrieveCategorieProduit(Long id);
 
 }
