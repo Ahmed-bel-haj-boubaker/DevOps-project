@@ -1,0 +1,67 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone GitHub') {
+            steps {
+                git branch: 'ahmedBranch', credentialsId: 'achat-spring-boot', url: 'https://github.com/Akramhn/Devops-Achat.git'
+            }
+        }
+        stage('Build Project') {
+            steps {
+                sh "mvn -X -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+
+
+        stage('Test') {
+            steps {
+
+                sh 'mvn test'
+
+            }
+        }
+
+        stage('SonarQube analysis') {
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar'
+            }
+        }
+
+
+
+         stage('Déploiement Nexus') {
+            steps {
+                script {
+                    sh 'mvn deploy -DskipTests'
+                }
+            }
+        }
+          stage('Docker image') {
+            steps {
+                sh 'docker build -t ahmedbelhaj2/achat .'
+            }
+        }
+                 stage('Push vers Docker Hub') {
+            steps {
+                script {
+                    def dockerUsername = 'ahmedbelhaj2'
+                    def dockerPassword = 'dockerhub'
+                    sh "echo ${dockerPassword} | docker login --username ${dockerUsername} --password-stdin"
+                    sh 'docker push ahmedbelhaj2/achat'
+                }
+            }
+        }
+
+
+
+        stage('Docker compose') {
+          steps {
+             sh 'docker-compose up'
+  }
+}
+
+    }
+
+
+}
